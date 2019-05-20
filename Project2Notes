@@ -1,0 +1,88 @@
+Project 2 Notes:
+
+Main Modifications
+  - All column names to lowercase
+  - All column names remove spaces
+
+Column Modifications
+  id - No modification, all unique, no nulls
+  pid - No modification, all unique, no nulls
+  ms_subclass- No modification, good grouping, no nulls, changed type to str (Good indicator)
+  ms_zoning - No modification, good grouping, no nulls (Good Indicator) (Imbalanced)
+  lot_frontage - Filled NA's with zeros (Good indicator)
+  lot_area - Good values, no zeros (Good indicator)
+  alley - Filled all null values with "OTHER"
+  lot_shape - No modification (Good Indicator)
+  land_contour - No modification (Good Indicator)
+  utilities - No modification, (Not great indicator, most have utilities not very useful - only two do not) Dummified
+        converted to 1's and 0's, 1's being having utilities
+  lot_config - No modification (G)
+  land_slope - No modification (B) Probably not good indicator, most are gentle slopes. 5% are not. Binary now.
+  neighborhood - No modification (G)
+  condition_1 - No modification (B) Most are in one category. Slightly uncomfortable with a dummy
+  condition_2 - No modification (G)
+  bldg_type - No modification (G)
+  house_style - No modification (G)
+  overall_qual - No change.
+  overall_cond - Categorical variable, typed to obj since it's not an integer (G)
+  year_built - No change.
+  year_remod/add - All good, no modification (VG) TIME SERIES Convert to str.
+  roof_style - No modifications (G)
+  roof_matl - No modifications (Heavily skewed) - dummified - 1 for standard roof 0 for other. turned to int type
+  exterior_1st - No modifications (VG)
+  exterior_2nd - No modifications (VG)
+  mas_vnr_type - Convert all nulls to none, which is the largest column. Still object type (null)
+  mas_vnr_area - Convert nulls to zeros, the largest value. maintain type float.
+  exter_qual - No modification (G)
+  exter_cond - No modification (G)
+  foundation - No modification (G)
+  bsmt_qual - Converted 'NA' which mean no basement to None, so not flagged as null. Maintain object type (G)
+  bsmt_cond - Converted 'NA' which mean no basement to None, so not flagged as null. Maintain object type (G)
+  bsmt_exposure - Converted 'NA' which mean no basement to None, so not flagged as null. Maintain object type (G)
+  bsmtfin_type_1 - Converted 'NA' which mean no basement to None, so not flagged as null. Maintain object type (G)
+  bsmtfin_sf_1 - Converted only 1 value to 0, because checking it's bsmt_cond, it had no basement (G)
+  bsmtfin_type_2 - Converted 'NA' which mean no basement to None, so not flagged as null. Maintain object type (G)
+  bsmtfin_sf_2 - Converted only 1 value to 0, because checking bsmtfin_type_2, it had no basement (G)
+  bsmt_unf_sf -  Converted only 1 value to 0, because checking bsmtfin_type_2, it had no basement (G)
+  total_bsmt_sf - Converted only 1 value to 0, because checking bsmtfin_type_2, it had no basement (G)
+  heating - No modification - highly skewed gas (B)
+  heating_qc - No modification - (G)
+  central_air - No modification (G)
+  electrical - No modification (G)
+  1st_flr_sf - No modification (G)
+  2nd_flr_sf - No modification (G)
+  low_qual_fin_sf - No modification (G)
+  gr_liv_area - No modification (G)
+  bsmt_full_bath - Convert two null values to zero, the overwhelming majority. Convert to str. (G)
+  bsmt_half_bath - Convert two null values to zero, the overwhelming majority. Convert to str. (G)
+  full_bath - No modifications. convert to str. (G)
+  half_bath - No modifications. conver to str. (G)
+  bedroom_abvgr - No modification convert to str (G)
+  kitchen_abvgr - No modification conver to str (G)
+  kitchen_qual - No modification (G)
+  totrms_abvgrd - No modification (G)
+  functional - No modification (G)
+  fireplaces - No modification (G)
+  fireplace_qu  - Changed null values to "None" (G)
+  garage_type - Changed null values to "None" (G)
+  garage_yr_blt - MAJOR ISSUE (G)
+  garage_finish - Changed null values to "None" (G)
+  garage_cars - MAJOR ISSUES, ONT SURE WHAT TO SET VALUE - Fill nulls with 0.
+  garage_area - MAJOR ISSUES ALL ONE INDEX PROBLEM - Fill nulls with 0.
+  garage_qual - Changed null values to "None" (G)
+  garage_cond - Changed null values to "None" (G)
+  paved_drive - No modification (G)
+  wood_deck_sf - No modification needed (G)
+  open_porch_sf - No modification needed (G)
+  enclosed_porch - No modification needed (G)
+  3ssn_porch - No modifications needed (G)
+  screen_porch - No modification needed (G)
+  pool_area - No modification needed (HEAVY WEIGHTED) to pool (VB)
+  pool_qc - Convert nulls to None (G)
+  fence - Convert nulls to None (G)
+  misc_feature - Convert nulls to None (G)
+  misc_val - No modification needed (G)
+  mo_sold - Convert to object (G)
+  yr_sold - Convert to object (G)
+  sale_type - No modifications needed (G) heavily weighted
+  saleprice - No modification needed (G)
